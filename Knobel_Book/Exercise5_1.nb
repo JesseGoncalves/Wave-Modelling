@@ -1,0 +1,488 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15528,        480]
+NotebookOptionsPosition[     13808,        415]
+NotebookOutlinePosition[     14181,        431]
+CellTagsIndexPosition[     14138,        428]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Creating the Left-Hand Side of the Equation", "Section",
+ CellChangeTimes->{{3.7169181326669135`*^9, 3.716918148361026*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LHS", " ", "=", " ", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"Sqrt", "[", "6", "]"}], 
+    RowBox[{"Sqrt", "[", 
+     RowBox[{"6", " ", "c"}], "]"}]], 
+   RowBox[{"Log", "[", 
+    RowBox[{"Tan", "[", 
+     FractionBox["\[Theta]", "2"], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7169128518359423`*^9, 3.716912875798942*^9}, {
+  3.716913180061963*^9, 3.716913184475095*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"Log", "[", 
+   RowBox[{"Tan", "[", 
+    FractionBox["\[Theta]", "2"], "]"}], "]"}], 
+  SqrtBox["c"]]], "Output",
+ CellChangeTimes->{3.7169128765704956`*^9, 3.7169131856939588`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "In the next block, we replace the ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"Tan", "(", 
+     FractionBox["\[Theta]", "2"], ")"}], " "}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "by using the appropriate half-angle formula.  Note that the \
+\[OpenCurlyQuote]/.\[CloseCurlyQuote] is used to indicate that we will be \
+substituting the items.  To get the \[OpenCurlyDoubleQuote]arrow\
+\[CloseCurlyDoubleQuote] simply use \[OpenCurlyQuote]-\[OpenCurlyQuote] \
+immediately followed by \[OpenCurlyQuote]>\[CloseCurlyQuote].  It will \
+automatically convert to the arrow.  Also, to type Greek characters, you can \
+use \[OpenCurlyQuote]esc\[CloseCurlyQuote] followed by typing \
+\[OpenCurlyQuote]theta\[CloseCurlyQuote] followed by another \
+\[OpenCurlyQuote]esc\[CloseCurlyQuote].  To learn more formatting short-cuts, \
+use can use the \[OpenCurlyQuote]Writing Assistant\[CloseCurlyQuote] located \
+under the \[OpenCurlyDoubleQuote]Palettes\[CloseCurlyDoubleQuote] menu.  "
+}], "Text",
+ CellChangeTimes->{{3.7169181620745525`*^9, 3.7169183497453833`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LHS", " ", "=", " ", 
+  RowBox[{"LHS", "/.", 
+   RowBox[{
+    RowBox[{"Tan", "[", 
+     FractionBox["\[Theta]", "2"], "]"}], "\[Rule]", 
+    FractionBox[
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       RowBox[{"Cos", "[", "\[Theta]", "]"}]}], ")"}], 
+     RowBox[{"Sin", "[", "\[Theta]", "]"}]]}]}]}]], "Input",
+ CellChangeTimes->{{3.7169128855888925`*^9, 3.716912919535968*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"Log", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      RowBox[{"Cos", "[", "\[Theta]", "]"}]}], ")"}], " ", 
+    RowBox[{"Csc", "[", "\[Theta]", "]"}]}], "]"}], 
+  SqrtBox["c"]]], "Output",
+ CellChangeTimes->{{3.7169129126230645`*^9, 3.716912919982291*^9}, 
+   3.7169131870369163`*^9}]
+}, Open  ]],
+
+Cell["\<\
+To make more than one substitution at the same time, you can chain together \
+the substitutions into a single list contained in braces as follows:\
+\>", "Text",
+ CellChangeTimes->{{3.7169183582003756`*^9, 3.7169184227837763`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LHS", " ", "=", " ", 
+  RowBox[{"LHS", "/.", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Csc", "[", "\[Theta]", "]"}], "\[Rule]", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox["f", 
+         RowBox[{"Sqrt", "[", 
+          RowBox[{"6", "c"}], "]"}]], ")"}], 
+       RowBox[{"-", "1"}]]}], ",", 
+     RowBox[{
+      RowBox[{"Sin", "[", "\[Theta]", "]"}], "\[Rule]", 
+      FractionBox["f", 
+       RowBox[{"Sqrt", "[", 
+        RowBox[{"6", "c"}], "]"}]]}], ",", 
+     RowBox[{
+      RowBox[{"Cos", "[", "\[Theta]", "]"}], "\[Rule]", 
+      FractionBox[
+       RowBox[{"Sqrt", "[", 
+        RowBox[{
+         RowBox[{"6", "c"}], "-", 
+         SuperscriptBox["f", "2"]}], "]"}], 
+       RowBox[{"Sqrt", "[", 
+        RowBox[{"6", "c"}], "]"}]]}]}], "}"}]}]}]], "Input",
+ CellChangeTimes->{{3.716912922535097*^9, 3.7169130725707593`*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"Log", "[", 
+   FractionBox[
+    RowBox[{
+     SqrtBox["6"], " ", 
+     SqrtBox["c"], " ", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       FractionBox[
+        SqrtBox[
+         RowBox[{
+          RowBox[{"6", " ", "c"}], "-", 
+          SuperscriptBox["f", "2"]}]], 
+        RowBox[{
+         SqrtBox["6"], " ", 
+         SqrtBox["c"]}]]}], ")"}]}], "f"], "]"}], 
+  SqrtBox["c"]]], "Output",
+ CellChangeTimes->{3.7169130189657774`*^9, 3.716913073613493*^9, 
+  3.7169131882357616`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Now we simplify.  Note, there are 2 handy simplify commands: \
+\[OpenCurlyDoubleQuote]Simplify\[CloseCurlyDoubleQuote] and \
+\[OpenCurlyDoubleQuote]FullSimplify\[CloseCurlyDoubleQuote].  Here, I\
+\[CloseCurlyQuote]ll use \[OpenCurlyDoubleQuote]FullSimplify\
+\[CloseCurlyDoubleQuote] but sometimes it can take too long.\
+\>", "Text",
+ CellChangeTimes->{{3.7169184314917116`*^9, 3.716918480044074*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LHS", "=", 
+  RowBox[{"FullSimplify", "[", "LHS", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7169130785049644`*^9, 3.7169130820464373`*^9}, {
+  3.7169184576509323`*^9, 3.7169184647261934`*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"Log", "[", 
+   FractionBox[
+    RowBox[{
+     RowBox[{
+      SqrtBox["6"], " ", 
+      SqrtBox["c"]}], "-", 
+     SqrtBox[
+      RowBox[{
+       RowBox[{"6", " ", "c"}], "-", 
+       SuperscriptBox["f", "2"]}]]}], "f"], "]"}], 
+  SqrtBox["c"]]], "Output",
+ CellChangeTimes->{3.7169130824797387`*^9, 3.7169131920440717`*^9, 
+  3.7169184659071846`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Defining the Right-Hand Side of the Equation", "Section",
+ CellChangeTimes->{{3.7169185056919127`*^9, 3.716918512776992*^9}}],
+
+Cell["Not much to show for this.", "Text",
+ CellChangeTimes->{{3.716918488474325*^9, 3.716918521597608*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RHS", " ", "=", " ", 
+  RowBox[{"z", " ", "+", " ", "d"}]}]], "Input",
+ CellChangeTimes->{{3.7169133010806484`*^9, 3.7169133111921873`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"d", "+", "z"}]], "Output",
+ CellChangeTimes->{3.71691331241905*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Now we Solve!", "Section",
+ CellChangeTimes->{{3.7169185308964095`*^9, 3.716918533497848*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solution", "=", 
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{"LHS", " ", "\[Equal]", "RHS"}], ",", "f"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7169133146766586`*^9, 3.71691333232217*^9}, {
+  3.7169133831086855`*^9, 3.7169133852592115`*^9}, {3.7169185374436903`*^9, 
+  3.7169185437145395`*^9}, {3.7169188653714023`*^9, 3.7169188658634415`*^9}, {
+  3.717029610848304*^9, 3.717029611798493*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"f", "\[Rule]", 
+    FractionBox[
+     RowBox[{"2", " ", 
+      SqrtBox["6"], " ", 
+      SqrtBox["c"], " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{
+         SqrtBox["c"], " ", "d"}], "+", 
+        RowBox[{
+         SqrtBox["c"], " ", "z"}]}]]}], 
+     RowBox[{"1", "+", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"2", " ", 
+        SqrtBox["c"], " ", 
+        RowBox[{"(", 
+         RowBox[{"d", "+", "z"}], ")"}]}]]}]]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.716918544458068*^9, 3.7169188674741583`*^9, {3.717029613718828*^9, 
+   3.7170296243147097`*^9}}]
+}, Open  ]],
+
+Cell["\<\
+In the next line, we create function that takes \[OpenCurlyQuote]z\
+\[CloseCurlyQuote], \[OpenCurlyQuote]c\[CloseCurlyQuote], and \
+\[OpenCurlyQuote]d\[CloseCurlyQuote] as inputs and returns the solution\
+\>", "Text",
+ CellChangeTimes->{{3.716928292624461*^9, 3.716928300060579*^9}, {
+  3.717029628126163*^9, 3.7170297069154673`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"F", "[", 
+   RowBox[{"z_", ",", "c_", ",", "d_"}], "]"}], " ", "=", " ", 
+  RowBox[{"f", "/.", 
+   RowBox[{"Solution", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7169189279598756`*^9, 3.716918939238365*^9}, {
+  3.717029661047858*^9, 3.7170296634234548`*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"2", " ", 
+   SqrtBox["6"], " ", 
+   SqrtBox["c"], " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     RowBox[{
+      SqrtBox["c"], " ", "d"}], "+", 
+     RowBox[{
+      SqrtBox["c"], " ", "z"}]}]]}], 
+  RowBox[{"1", "+", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"2", " ", 
+     SqrtBox["c"], " ", 
+     RowBox[{"(", 
+      RowBox[{"d", "+", "z"}], ")"}]}]]}]]], "Output",
+ CellChangeTimes->{3.7169189415803895`*^9, 3.7170296181751604`*^9, 
+  3.7170296649081373`*^9, 3.717029710510508*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Animate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"F", "[", 
+       RowBox[{
+        RowBox[{"x", "-", 
+         RowBox[{"c", " ", "t"}]}], ",", "c", ",", "t"}], "]"}], "/.", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"c", "\[Rule]", "2"}], ",", 
+        RowBox[{"d", "\[Rule]", "0"}]}], "}"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "Full"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", 
+     RowBox[{"-", "5"}], ",", "5"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.716913388078212*^9, 3.7169134851050425`*^9}, {
+  3.7169135468748674`*^9, 3.7169135697987375`*^9}, {3.716918609146626*^9, 
+  3.716918623934532*^9}, {3.7169186768736534`*^9, 3.7169187661193666`*^9}, {
+  3.7169188373021636`*^9, 3.716918845770438*^9}, {3.7169189506512623`*^9, 
+  3.7169189577286177`*^9}, {3.717029675533585*^9, 3.7170296759811134`*^9}, {
+  3.717029738309108*^9, 3.7170297826249504`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`t$$ = 0.5103190422058104, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`t$$], -5, 5}}, Typeset`size$$ = {720., {217., 228.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`t$264937$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`t$$ = -5}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`t$$, $CellContext`t$264937$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        ReplaceAll[
+         $CellContext`F[$CellContext`x - $CellContext`c $CellContext`t$$, \
+$CellContext`c, $CellContext`t$$], {$CellContext`c -> 2, $CellContext`d -> 
+          0}], {$CellContext`x, -10, 10}, PlotRange -> Full], 
+      "Specifications" :> {{$CellContext`t$$, -5, 5, 
+         AppearanceElements -> {
+          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
+           "DirectionButton"}}}, 
+      "Options" :> {
+       ControlType -> Animator, AppearanceElements -> None, DefaultBaseStyle -> 
+        "Animate", DefaultLabelStyle -> "AnimateLabel", SynchronousUpdating -> 
+        True, ShrinkingDelay -> 10.}, "DefaultOptions" :> {}],
+     ImageSizeCache->{806., {286., 297.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Animate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.716918694603038*^9, 3.716918710284301*^9}, {
+   3.7169187405371084`*^9, 3.716918763377335*^9}, {3.7169188469754205`*^9, 
+   3.7169188756614227`*^9}, 3.7169189594021087`*^9, 3.7170296774342585`*^9, {
+   3.7170297145957575`*^9, 3.7170297834374547`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7169189086863513`*^9, 3.7169189175240917`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "c"}], " ", 
+    RowBox[{"D", "[", 
+     RowBox[{
+      RowBox[{"F", "[", 
+       RowBox[{"z", ",", "c", ",", "d"}], "]"}], ",", "z"}], "]"}]}], "+", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"F", "[", 
+      RowBox[{"z", ",", "c", ",", "d"}], "]"}], "2"], 
+    RowBox[{"D", "[", 
+     RowBox[{
+      RowBox[{"F", "[", 
+       RowBox[{"z", ",", "c", ",", "d"}], "]"}], ",", "z"}], "]"}]}], "+", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"F", "[", 
+      RowBox[{"z", ",", "c", ",", "d"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "3"}], "}"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7169136625454807`*^9, 3.716913721151762*^9}, {
+  3.716918890601812*^9, 3.716918905436571*^9}, {3.7169189683402567`*^9, 
+  3.716918987478179*^9}, {3.7170298105000315`*^9, 3.7170298222668886`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.717029823157531*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7170298005498466`*^9, 3.7170298005654516`*^9}}]
+}, Open  ]]
+},
+WindowSize->{1920, 1007},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+Magnification:>2. Inherited,
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 130, 1, 140, "Section"],
+Cell[CellGroupData[{
+Cell[735, 27, 404, 11, 95, "Input"],
+Cell[1142, 40, 219, 6, 107, "Output"]
+}, Open  ]],
+Cell[1376, 49, 1094, 20, 192, "Text"],
+Cell[CellGroupData[{
+Cell[2495, 73, 406, 11, 95, "Input"],
+Cell[2904, 86, 341, 10, 93, "Output"]
+}, Open  ]],
+Cell[3260, 99, 240, 4, 98, "Text"],
+Cell[CellGroupData[{
+Cell[3525, 107, 894, 27, 105, "Input"],
+Cell[4422, 136, 527, 19, 150, "Output"]
+}, Open  ]],
+Cell[4964, 158, 410, 7, 98, "Text"],
+Cell[CellGroupData[{
+Cell[5399, 169, 215, 4, 61, "Input"],
+Cell[5617, 175, 389, 14, 121, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6055, 195, 131, 1, 140, "Section"],
+Cell[6189, 198, 108, 1, 60, "Text"],
+Cell[CellGroupData[{
+Cell[6322, 203, 164, 3, 61, "Input"],
+Cell[6489, 208, 91, 2, 61, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6629, 216, 100, 1, 140, "Section"],
+Cell[CellGroupData[{
+Cell[6754, 221, 425, 8, 61, "Input"],
+Cell[7182, 231, 674, 22, 102, "Output"]
+}, Open  ]],
+Cell[7871, 256, 344, 6, 60, "Text"],
+Cell[CellGroupData[{
+Cell[8240, 266, 328, 8, 61, "Input"],
+Cell[8571, 276, 547, 18, 102, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9155, 299, 1065, 26, 61, "Input"],
+Cell[10223, 327, 2349, 45, 615, "Output"]
+}, Open  ]],
+Cell[12587, 375, 96, 1, 61, "Input"],
+Cell[CellGroupData[{
+Cell[12708, 380, 900, 25, 66, "Input"],
+Cell[13611, 407, 70, 1, 61, "Output"]
+}, Open  ]],
+Cell[13696, 411, 96, 1, 61, "Input"]
+}, Open  ]]
+}
+]
+*)
+
