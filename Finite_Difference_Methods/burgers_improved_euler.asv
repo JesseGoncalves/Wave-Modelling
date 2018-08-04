@@ -21,9 +21,10 @@ for i = 2:m
     E = diag(U(:,i-1));
     U(:,i) = U(:,i-1) - d*E*D*U(:,i-1); % evolve u matrix
     U(:,i) = U(:,i-1) - d/2*E*D*(U(:,i) + U(:,i-1)); % evolve u using improved euler
-    U_conserve1(1,i-1) = (sum(U(:,i))-sum(U(:,i-1)))*h/k + 1/2*(U(1,i-1)^2 - U(end,i-1)^2);
+    U_conserve1(1,i) = sum(U(:,i))-sum(U(:,i
 end
 figure(1); surf(U((n/4):(3*n/4),1:100))
 title('u[x,0] = 0 if x <= 0, 1 if 0 < x < 1, and 0 if x >= 0'); 
 ylabel('space'); xlabel('time'); shading interp; view(90,-90); axis tight
+U_conserve1 = diff(sum(U))*h/k + 1/2*(U(1,end)^2 - U(1,1)^2);
 figure(2); plot(U_conserve1); title('Conserved Quantity'); % plot conserved quantity
