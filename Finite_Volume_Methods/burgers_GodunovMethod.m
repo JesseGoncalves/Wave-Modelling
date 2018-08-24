@@ -23,7 +23,7 @@ m_sec = (2*n/5 + 1):(3*n/5 - 1);
 r_sec = (3*n/5):n;
 
 Q(l_sec,1) = 0; % left initial condition
-Q(m_sec,1) = max(0,sin(pi*m_sec/length(m_sec))); % middle initial condition
+Q(m_sec,1) = 1;%max(0,sin(pi*m_sec/length(m_sec))); % middle initial condition
 Q(r_sec,1) =0 ; % right initial condition
 
 
