@@ -43,12 +43,18 @@ for j = 2:m
     end
 end
 
-figure(1); surf(H(n/4:3*n/4,1:m)); % show results
+% Setting up the x-t grid for the plots
+[T,X] = meshgrid(linspace(0,tf,m),linspace(-2,2,n));
+t_inds = 1:m;   x_inds = n/4:3*n/4; % setting the indices for viewing.
+
+
+
+figure(1); surf(T(x_inds,t_inds),X(x_inds,t_inds),H(x_inds,t_inds)); % show results
 title(['h: h- = ' num2str(h_left) ', h+ = ' num2str(h_right)]);ylabel('space');...
     xlabel('time'); shading interp; view(90,-90); axis tight
-figure(2); surf(HU(n/4:3*n/4,1:m));
+figure(2); surf(T(x_inds,t_inds),X(x_inds,t_inds),HU(x_inds,t_inds));
 title(['hu: hu- = ' num2str(h_left*u_left) ', hu+ = ' num2str(h_right*u_right)]); ylabel('space');...
     xlabel('time'); shading interp; view(90,-90); axis tight
-figure(3); surf(HU(n/4:3*n/4,1:m)./H(n/4:3*n/4,1:m));
+figure(3); surf(T(x_inds,t_inds),X(x_inds,t_inds),HU(x_inds,t_inds)./H(x_inds,t_inds));
 title(['u: u- = ' num2str(u_left) ', u+ = ' num2str(u_right)]); ylabel('space');...
     xlabel('time'); shading interp; view(90,-90); axis tight
