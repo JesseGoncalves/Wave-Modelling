@@ -6,12 +6,12 @@ clear all; close all; clc
 L = 5; % length of x-interval
 tf = 2; % length of t-interval
 n = 1000; % number of cells in x
-m = 200; % number of time steps
+m = 500; % number of time steps
 h = L/n; % cell lengths in x
 k = tf/m; % time step size
 Q = zeros(n,m); % space-time matrix of Q = cell volumes of function u
 Q(1:(2*n/5),1) = 0; % left initial condition
-Q((2*n/5 + 1):(3*n/5 - 1),1) = h; % middle initial condition
+Q((2*n/5 + 1):(3*n/5 - 1),1) = 1; % middle initial condition
 Q((3*n/5):n,1) = 0; % right initial condition
 a = k/h; % FVM constant
 for i = 2:m
