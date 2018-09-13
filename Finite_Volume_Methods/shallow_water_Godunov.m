@@ -8,21 +8,24 @@ g = 9.8; % gravitational constant
 L = 4; % length of x-interval
 tf = 1; % length of t-interval
 n = 400; % number of x-grid points
-m = 1000; % number of time steps
+m = 2000; % number of time steps
 h = L/n; % mesh spacing
 k = tf/m; % time step size
 H = zeros(n,m); % space-time matrix of h
 HU = zeros(n,m); % space-time matrix of hu
 
 %% Set ICs
-h_left = 1;
-h_right = 1;
+h_left = 2; % must be > 0
+h_right = 1; % must be > 0
 u_left = -1;
 u_right = 1;
 H(1:(n/2),1) = h_left; HU(1:(n/2),1) = h_left*u_left; % left initial conditions
 H((n/2+1):n,1) = h_right; HU((n/2+1):n,1) = h_right*u_right; % right initial conditions
 H(1,1:m) = h_left; H(n,1:m) = h_right; HU(1,1:m) = h_left*u_left;...
     HU(n,1:m) = h_right*u_right; % keep BCs constant
+
+%% Predict structure
+disp(shallow_water_structure(h_left,h_right,u_left,u_right))
 
 %% Apply Godunov's method
 a = k/(2*h); % FVM constant
@@ -50,11 +53,11 @@ t_inds = 1:m;   x_inds = n/4:3*n/4; % setting the indices for viewing.
 
 
 figure(1); surf(T(x_inds,t_inds),X(x_inds,t_inds),H(x_inds,t_inds)); % show results
-title(['h: h- = ' num2str(h_left) ', h+ = ' num2str(h_right)]);ylabel('space');...
-    xlabel('time'); shading interp; view(90,-90); axis tight
+title(['h: h- = ' num2str(h_left) ', h+ = ' num2str(h_right)]);...
+    ylabel('space'); xlabel('time'); shading interp; view(90,-90); axis tight
 figure(2); surf(T(x_inds,t_inds),X(x_inds,t_inds),HU(x_inds,t_inds));
-title(['hu: hu- = ' num2str(h_left*u_left) ', hu+ = ' num2str(h_right*u_right)]); ylabel('space');...
-    xlabel('time'); shading interp; view(90,-90); axis tight
+title(['hu: hu- = ' num2str(h_left*u_left) ', hu+ = ' num2str(h_right*u_right)]);...
+    ylabel('space'); xlabel('time'); shading interp; view(90,-90); axis tight
 figure(3); surf(T(x_inds,t_inds),X(x_inds,t_inds),HU(x_inds,t_inds)./H(x_inds,t_inds));
 title(['u: u- = ' num2str(u_left) ', u+ = ' num2str(u_right)]); ylabel('space');...
     xlabel('time'); shading interp; view(90,-90); axis tight
