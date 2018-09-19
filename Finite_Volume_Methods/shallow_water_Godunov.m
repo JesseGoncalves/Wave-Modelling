@@ -15,10 +15,10 @@ H = zeros(n,m); % space-time matrix of h
 HU = zeros(n,m); % space-time matrix of hu
 
 %% Set ICs
-h_left = 2; % must be > 0
+h_left = 1; % must be > 0
 h_right = 1; % must be > 0
-u_left = -1;
-u_right = 1;
+u_left = -2;
+u_right = 2;
 H(1:(n/2),1) = h_left; HU(1:(n/2),1) = h_left*u_left; % left initial conditions
 H((n/2+1):n,1) = h_right; HU((n/2+1):n,1) = h_right*u_right; % right initial conditions
 H(1,1:m) = h_left; H(n,1:m) = h_right; HU(1,1:m) = h_left*u_left;...
@@ -46,11 +46,11 @@ for j = 2:m
     end
 end
 
+%% Plot solution
+
 % Setting up the x-t grid for the plots
 [T,X] = meshgrid(linspace(0,tf,m),linspace(-2,2,n));
 t_inds = 1:m;   x_inds = n/4:3*n/4; % setting the indices for viewing.
-
-
 
 figure(1); surf(T(x_inds,t_inds),X(x_inds,t_inds),H(x_inds,t_inds)); % show results
 title(['h: h- = ' num2str(h_left) ', h+ = ' num2str(h_right)]);...
